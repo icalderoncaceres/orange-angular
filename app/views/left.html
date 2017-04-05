@@ -1,0 +1,26 @@
+<style>
+	#navigation a{
+		color:{{configuration.apparence.left.linkcolor}} !important
+	}
+</style>
+<div id="sidebar-wrap" ng-controller="navController">
+	  <center><h4>Navigation</h4></center>
+	  <hr>
+	  <!--
+      <ul id="navigation" nav-collapse ripple>
+			<li ng-class="{'active':page.selected==1}"><a href="#!/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+			<li ng-class="{'active':page.selected==2}"><a href="#!/programs"><i class="fa fa-file"></i> <span>Program Manager</span></a></li>
+			<li ng-class="{'active':page.selected==3}"><a href="#!/schedualing"><i class="fa fa-calendar"></i> <span>Program Schedualing</span></a></li>
+			<li ng-class="{'active':page.selected==4}"><a href="#!/content"><i class="fa fa-book"></i> <span>Content Management</span></a></li>
+			<li ng-class="{'active':page.selected==5}"><a href="#!/users"><i class="fa fa-user"></i> <span>User Management</span></a></li>		
+			<li ng-class="{'active':page.selected==6}"><a href="#!/users/mailing"><i class="fa fa-envelope-o"></i> <span>Mailing Management</span></a></li>
+			<li ng-class="{'active':page.selected==7}"><a href="#!/users/admins"><i class="fa fa-wrench"></i> <span>Admin Management</span></a></li>
+			<li ng-class="{'active':page.selected==8}"><a href="#!/settings"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+	  </ul>
+	  -->
+      <ul id="navigation" nav-collapse ripple>
+			<li ng-class="{'active':page.selected==1}"><a href="#!/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+			<li ng-repeat="option in configuration.options" ng-class="{'active':page.selected==option.index}"><a href="#!/{{option.target}}"><i ng-class="option.icon"></i><span>{{option.caption}}</span></a></li>
+			<li ng-class="{'active':page.selected==8}" ng-show="main.env=='dev'"><a href="#!/settings"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+	  </ul>	  
+</div>

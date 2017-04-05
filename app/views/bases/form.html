@@ -1,0 +1,90 @@
+<div class="page page-smart-table">
+  <!-- page header -->
+  <div class="pageheader">
+    <h2>{{page.title}} </h2>
+
+    <div class="page-bar">
+
+      <ul class="page-breadcrumb">
+        <li>
+          <a class="point" href="#/"><i class="fa fa-home"></i> {{main.title}}</a>
+        </li>
+        <li>
+          <a>{{page.title}}</a> / <a href="#!/{{model}}">{{model}}</a> / Create
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+  <!-- /page header -->
+
+  <!-- page content -->
+  <div class="pagecontent">
+    <!-- row -->
+    <div class="row">
+      <!-- col -->
+      <div class="col-md-12">
+
+        <!-- tile -->
+        <section class="tile" fullscreen="isFullscreen02">
+          <!-- tile header -->
+          <div class="tile-header dvd dvd-btm">
+            <h1 class="custom-font"><strong>Form </strong>Create</h1>
+            <ul class="controls">
+              <li class="dropdown">
+                <a class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+                <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                  <li>
+                    <a href tile-control-toggle>
+                      <span class="minimize"><i class="fa fa-angle-down"></i>&nbsp;&nbsp;&nbsp;Minimize</span>
+                      <span class="expand"><i class="fa fa-angle-up"></i>&nbsp;&nbsp;&nbsp;Expand</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href tile-control-refresh ng-click="ajaxFaker()">
+                      <i class="fa fa-refresh"></i> Refresh
+                    </a>
+                  </li>
+                  <li>
+                    <a href tile-control-fullscreen ng-click="isFullscreen02 = !isFullscreen02">
+                      <i class="fa fa-expand"></i> Fullscreen
+                    </a>
+                  </li>
+                  <li>
+                    <a href tile-control-lightbox>
+                      <i class="fa fa-magnet"></i> Open in Lightbox
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+              <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+            </ul>
+          </div>
+          <!-- /tile header -->
+
+          <!-- tile body -->
+          <div class="tile-body"> 
+				<form>
+					<div class="form-group" ng-repeat="field in object.tableParams.titles">
+						<input class="form-control" placeholder="{{field.placeholder}}"/>
+					</div>
+					<button class="btn btn-success">Save</button>&nbsp;
+					<button class="btn btn-info">Clear</button>
+					<a href="#!/{{model}}"><button class="btn btn-warning">Back</button></a>
+				</form>
+          </div>
+          <!-- /tile body -->
+
+        </section>
+        <!-- /tile -->
+
+      </div>
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /page content -->
+</div>

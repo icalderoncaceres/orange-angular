@@ -1,0 +1,20 @@
+{
+	"apparence":{
+		"header":{
+			"background":"#493d55",
+			"color":"#616f77"
+		},
+		"left":{
+			"background":"#fff",
+			"color":"#616f77"
+		},
+		"content":{
+			"background":"#e7eaeb",
+			"color":"#616f77"
+		},
+		"footer":{
+			"background":"#493d55",
+			"color":"#616f77"
+		}
+	}
+}

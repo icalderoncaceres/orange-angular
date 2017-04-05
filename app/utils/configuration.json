@@ -1,0 +1,74 @@
+{
+	"apparence":{
+		"header":{
+			"background":"#493d55",
+			"linkcolor":"#337ab7",
+			"color":"#616f77"
+		},
+		"left":{
+			"background":"#493d55",
+			"linkcolor":"#c0c0c0",
+			"color":"#616f77"
+		},
+		"content":{
+			"background":"#e7eaeb",
+			"linkcolor":"#616f77",
+			"color":"#616f77"
+		},
+		"footer":{
+			"background":"#493d55",
+			"linkcolor":"#616f77",
+			"color":"#616f77"
+		}
+	},
+	"options":[
+		{
+			"index":2,
+			"key":"programs",
+			"target":"programs",
+			"caption":"Program management",
+			"type":"CRUD",
+			"icon":"fa fa-file"
+		},
+		{
+			"index":3,
+			"key":"schedualing",
+			"target":"schedualing",
+			"caption":"Program Schedualing",
+			"type":"CUSTOM",
+			"icon":"fa fa-calendar"
+		},
+		{
+			"index":4,
+			"key":"content",
+			"target":"content",
+			"caption":"Content management",
+			"type":"CUSTOM",
+			"icon":"fa fa-book"
+		},
+		{
+			"index":5,
+			"key":"users",
+			"target":"users",
+			"caption":"User management",
+			"type":"CRUD",
+			"icon":"fa fa-users"
+		},
+		{	
+			"index":6,
+			"key":"mailing",
+			"target":"users/mailing",
+			"caption":"Mailing management",
+			"type":"CUSTOM",
+			"icon":"fa fa-envelope-o"			
+		},
+		{
+			"index":7,
+			"key":"admin",
+			"target":"users/admins",
+			"caption":"Admin management",
+			"type":"CUSTOM",
+			"icon":"fa fa-wrench"
+		}
+	]
+}

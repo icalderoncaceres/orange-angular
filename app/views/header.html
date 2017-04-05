@@ -1,0 +1,77 @@
+<style>
+	header a{
+		color:{{configuration.apparence.header.linkcolor}}
+	}
+</style>
+<header class="clearfix" ng-style="{'background-color':configuration.apparence.header.background,'color':configuration.apparence.header.color}">
+	<!-- Branding -->
+    <div class="branding>
+		<a class="brand">
+			<span>{{ main.title }}</span>
+        </a>
+        <a href="javascript:;" class="offcanvas-toggle visible-xs-inline" offcanvas-sidebar><i class="fa fa-bars"></i></a>
+     </div>
+     <!-- Branding end -->
+     <!-- Left-side navigation -->
+     <ul class="nav-left pull-left list-unstyled list-inline">
+		<li class="sidebar-collapse divided-right">
+			<a href="javascript:;" collapse-sidebar>
+				<fa name="outdent"></fa>
+            </a>
+        </li>
+     </ul>
+     <!-- Right-side navigation -->
+     <ul class="nav-right pull-right list-inline">
+          <li class="dropdown nav-profile" >
+				<a href class="dropdown-toggle" data-toggle="dropdown">
+					<img profile-image ng-src="images/avatars/{{profile.id}}.jpg" alt="{{ profile.name }}" class="img-circle size-30x30">
+					<span>{{ profile.name }} <i class="fa fa-angle-down"></i></span>
+				</a>
+				<ul class="dropdown-menu animated littleFadeInRight" role="menu">
+					<li>
+						<a>
+							<!--<span class="badge bg-greensea pull-right">86%</span>-->
+							<i class="fa fa-user"></i> Profile
+						</a>
+					</li>
+					<li>
+						<a href="#" ng-click="user.logout()">
+							<i class="fa fa-sign-out"></i> Logout
+						</a>
+					</li>
+				</ul>
+		  </li>		  
+          <li class="dropdown language">
+				<a href class="dropdown-toggle" data-toggle="dropdown">
+					<img src="images/flags/{{currentLanguage.flag}}.png" alt="" class="w-40">
+				</a>
+				<ul class="dropdown-menu pull-right with-arrow animated littleFadeInDown" role="menu">
+					<li ng-show="currentLanguage.language != 'en'">
+						<a ng-click="changeLanguage('en')" class="point">
+							<img src="images/flags/United-States-of-America.42ddfa1a.png" alt="" class="w-40"> English
+						</a>
+					</li>
+					<li ng-show="currentLanguage.language != 'fr'">
+						<a ng-click="changeLanguage('fr')" class="point">
+							<img src="images/flags/France.9d324bf8.png" alt="" class="w-40"> French
+						</a>
+					</li>
+					<li ng-show="currentLanguage.language != 'es'">
+						<a ng-click="changeLanguage('es')" class="point">
+							<img src="images/flags/Spain.acb4b69d.png" alt="" class="w-40"> Español
+						</a>
+					</li>
+					<li ng-show="currentLanguage.language != 'po'">
+						<a ng-click="changeLanguage('po')" class="point">
+							<img src="images/flags/Portugal.cafd01f2.png" alt="" class="w-40"> Portugues
+						</a>
+					</li>
+					<li ng-show="currentLanguage.language != 'it'">
+						<a ng-click="changeLanguage('it')" class="point">
+							<img src="images/flags/Italy.8090a678.png" alt="" class="w-40"> Italiano
+						</a>
+					</li>					
+				</ul>
+			</li>
+        </ul>
+ </header>

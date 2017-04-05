@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SC-Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css.map">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css.map">
+	<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+<!--    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />-->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body id="minovate" ng-app="angularApp" ng-controller="mainController">
+	<ng-include src="'views/header.html'"></ng-include>  <!--Encabezado -->
+    <div class="">
+		<div class="row">
+			<div class="col-xs-12 col-sm-2" ng-style="{'background-color':configuration.apparence.left.background,'color':configuration.apparence.left.color,'height':'600px'}">
+				<ng-include src="'views/left.html'"></ng-include>
+			</div>
+			<div class="col-xs-12 col-sm-10" id="centro" ng-style="{'background-color':configuration.apparence.content.background,'color':configuration.apparence.content.color}">
+			     <div ng-view=""></div>
+			</div>
+		</div>
+	</div>
+
+
+    <div class="footer center-text" style="background-color: {{configuration.apparence.footer.background}};color: {{configuration.apparence.footer.color}};">
+      <div class="container">
+        <p><i class="fa fa-user"></i> Template created por Iv&aacute;n Calderon / Sistema Calderon 
+		&nbsp;<a href="mailto:ivandario2010@gmail.com" target="_blank"> <i class="fa fa-envelope-o"></i> ivandario2010@gmail</a>
+		&nbsp;/ <i class="fa fa-skype"></i> icalderon76
+		&nbsp;/ <i class="fa fa-phone"></i> +58 414-7109217
+		&nbsp; San Crist&oacute;bal Estado T&aacute;chira, Venezuela
+		</p>
+      </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+	<!--
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <!--<script src="scripts/controllers/main.js"></script>-->
+    <!-- endbuild -->
+</body>
+</html>
