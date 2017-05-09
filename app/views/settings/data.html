@@ -10,7 +10,7 @@
           <a class="point" href="#/"><i class="fa fa-home"></i> {{main.title}}</a>
         </li>
         <li>
-          <a>{{page.title}}</a> / <a href="#!/settings">Settings</a>
+          <a>{{page.title}}</a> / <a href="#!/settings">Settings</a> / <a href="#!/settings/menu">Menu</a> / Data
         </li>
       </ul>
 
@@ -30,7 +30,7 @@
         <section class="tile" fullscreen="isFullscreen02">
           <!-- tile header -->
           <div class="tile-header dvd dvd-btm">
-            <h1 class="custom-font"><strong>Data </strong>Configuration</h1>
+            <h1 class="custom-font"><strong>Data </strong>Configuration for <span class="alert alert-success">{{newOption.caption}}</span></h1>
             <ul class="controls">
               <li class="dropdown">
                 <a class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
@@ -67,7 +67,137 @@
 
           <!-- tile body -->
           <div class="tile-body">
-				Opciones de configuracion de la data
+				<table class="table table-striped">
+					<caption>Structure</caption>
+					<thead>
+						<tr>							
+							<th width="24%">Field</th>
+							<th width="24%">Caption</th>
+							<th width="10%">Type</th>
+							<th width="10%">Width</th>
+							<th width="4%">Filter</th>
+							<th width="4%">Sort</th>
+							<th width="4%">Edit</th>
+							<th width="4%">Visible</th>
+							<th width="5%">Options</th>
+							<th width="17%">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="option in fields">
+							<td><span>{{option.field}}</span></td>
+							<td><span>{{option.caption}}</span></td>
+							<td><span>{{option.type}}</span></td>
+							<td><span>{{option.width}}</span></td>
+							<td><input type="checkbox" ng-model="option.filter" ng-checked="option.filter==1"></input></td>
+							<td><input type="checkbox" ng-model="option.sort" ng-checked="option.sort==1"></input></td>
+							<td><input type="checkbox" ng-model="option.edit" ng-checked="option.edit==1"></input></td>
+							<td><input type="checkbox" ng-model="option.visible" ng-checked="option.visible==1"></input></td>
+							<td><button class="btn btn-sm btn-success"><i class="fa fa-wrench"></i></button></td>
+							<td>
+								<button><span class="glyphicon glyphicon-pencil"></span></button>
+								<button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input placeholder="Field" class="form-control" ng-model="newField.field"></input>
+							</td>
+							<td>
+								<input placeholder="Caption" class="form-control" ng-model="newField.caption"></input>
+							</td>
+							<td>
+								<select placeholder="Type" class="form-control" ng-model="newField.type">
+									<option>Integer</option>
+									<option>Auto</option>
+									<option>Float</option>
+									<option>Text</option>
+									<option>Email</option>
+									<option>Password</option>
+									<option>File</option>
+									<option>Color</option>
+									<option>Date</option>
+									<option>Datetime</option>
+									<option>Boolean</option>
+									<option>Enum</option>
+									<option>Status</option>
+									<option>Model</option>
+								</select>
+							</td>
+							<td>
+								<input type="number" class="form-control" placeholder="Width" min="0" max="100" ng-model="newField.width"></input>
+							</td>
+							<td>
+								<input type="checkbox" class="form-control" ng-checked="newField.filter==1" ng-model="newField.filter"></input>
+							</td>
+							<td>
+								<input type="checkbox" class="form-control" ng-checked="newField.sort==1" ng-model="newField.sort"></input>
+							</td>
+							<td>
+								<input type="checkbox" class="form-control" ng-checked="newField.edit==1" ng-model="newField.edit"></input>
+							</td>
+							<td>
+								<input type="checkbox" class="form-control" ng-checked="newField.visible==1" ng-model="newField.visible"></input>
+							</td>							
+							<td>
+								<button class="btn btn-sm btn-success"><i class="fa fa-wrench"></i></button>
+							</td>
+							<td>
+								<button ng-click="saveField()">
+									<span class="glyphicon glyphicon-save"></span>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<hr>
+				<table class="table table-striped">
+					<caption>Test environment</caption>
+					<thead>
+						<tr>
+							<th ng-repeat="field in fields" width="{{field.width}}%">{{field.caption}}</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="dato in datos">
+							<td ng-repeat="field in fields"><span>{{dato[field.field]}}</span></td>
+							<td>
+								<button class="btn btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>
+								<button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>
+						</tr>						
+						<tr>
+							<td ng-repeat="field in fields"><input class="form-control" ng-model="newDato[field.field]"></input></td>
+							<td><button ng-click="saveDato()"><span class="glyphicon glyphicon-save"></span></button></td>
+						</tr>
+					</tbody>
+				</table>
+				<hr>
+				<div class="form-group">
+					<div class="col-xs-4">
+						<label for="develop" class=""><h3>Develop environment</h3></label>
+					</div>
+					<div class="col-xs-7">
+						<input type="text" class="form-control" name="develop" id="develop" placeholder="Api restful for develop environment" ng-model="configuration.data.develop" />
+					</div>
+					<div class="col-xs-1">
+						<button class="btn btn-sm"><i class="fa fa-save"></i></button>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="form-group">
+					<div class="col-xs-4">
+						<label for="production" class=""><h3>Production environment</h3></label>
+					</div>
+					<div class="col-xs-7">
+						<input type="text" class="form-control" name="production" id="production" placeholder="Api restful for production environment" ng-model="configuration.data.production" />
+					</div>
+					<div class="col-xs-1">
+						<button class="btn btn-sm"><i class="fa fa-save"></i></button>
+					</div>					
+				</div>
+				<hr><br><br><br>
           </div>
           <!-- /tile body -->
 

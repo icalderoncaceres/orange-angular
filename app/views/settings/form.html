@@ -10,7 +10,7 @@
           <a class="point" href="#/"><i class="fa fa-home"></i> {{main.title}}</a>
         </li>
         <li>
-          <a>{{page.title}}</a> / <a href="#!/{{model}}/list">{{model}}</a> / Create
+          <a>{{page.title}}</a> / <a href="#!/settings">Settings</a> / <a href="#!/settings/menu">Menu</a> / Create
         </li>
       </ul>
 
@@ -68,17 +68,27 @@
           <!-- tile body -->
           <div class="tile-body"> 
 				<form>
-					<div class="form-group" ng-repeat="field in object.tableParams.titles">
-						<input class="form-control" placeholder="{{field.caption}}"/>
-						<!--
-						Una directiva mas u menos asi
-						<control ui-field="field"></control>
-						dentro de esta directiva válida y construye el objeto html, si es un input, select, etc
-						-->
+					<div class="form-group">
+						<input class="form-control" placeholder="key" ng-model='newOption.key' ng-show='edit==0' />
 					</div>
-					<button class="btn btn-success">Save</button>&nbsp;
-					<button class="btn btn-info">Clear</button>
-					<a href="#!/{{model}}"><button class="btn btn-warning">Back</button></a>
+					<div class="form-group">
+						<input class="form-control" placeholder="caption" ng-model='newOption.caption' />
+					</div>
+					<div class="form-group">
+						<select class="form-control" ng-model='newOption.type' >
+							<option>---Choose type ----- </option>
+							<option>CRUD</option>
+							<option>HTML PAGE</option>
+							<option>CUSTOM</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<input class="form-control" placeholder="awesome icon class, example: fa fa-users" ng-model="newOption.icon" />
+						preview <i ng-class="newOption.icon"></i>
+					</div>					
+					<a ng-click="saveOption()"><button class="btn btn-success">Save</button></a>&nbsp;
+					<button class="btn btn-info" ng-click="clearOption()">Clear</button>
+					<a href="#!/settings/menu"><button class="btn btn-warning">Back</button></a>
 				</form>
           </div>
           <!-- /tile body -->

@@ -1,4 +1,4 @@
-<div class="page page-smart-table">
+<div>
   <!-- page header -->
   <div class="pageheader">
     <h2>{{page.title}}</h2>
@@ -10,7 +10,7 @@
           <a class="point" href="#/"><i class="fa fa-home"></i> {{main.title}}</a>
         </li>
         <li>
-          <a>{{page.title}}</a> / <a href="#!/settings">Settings</a>
+          <a>{{page.title}}</a> / <a href="#!/settings">Settings</a> / &nbsp;&nbsp;Menu
         </li>
       </ul>
 
@@ -68,7 +68,7 @@
           <!-- tile body -->
           <div class="tile-body">            
 			
-			<a href="#!/{{model}}/create"><button class="btn btn-primary pull-right"><i class="fa fa-file"></i> Add</button></a>
+			<a href="#!/settings/menu/create"><button class="btn btn-primary pull-right"><i class="fa fa-file"></i> Add</button></a>
 
             <table class="table table-custom">
 			  <thead>
@@ -103,10 +103,9 @@
 						<span>{{option.icon}}</span>
 					</td>
 					<td>
-						<button class="btn btn-primary btn-sm" ng-click="users.save(row, rowForm)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
-						<button class="btn btn-default btn-sm" ng-click="users.cancel(row, rowForm)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
-						<button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing"><span class="glyphicon glyphicon-pencil"></span></button>
-						<button class="btn btn-danger btn-sm" ng-click="users.del(row)" ng-if="!row.isEditing"><span class="glyphicon glyphicon-trash"></span></button>
+						<a href="#!/settings/menu/update/{{option.key}}"><button class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-pencil"></span></button></a>
+						<a href="#!/settings/menu/data/{{option.key}}"><button class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-pencil"></span></button></a>
+						<button class="btn btn-danger btn-sm" ng-click="del(option)"><span class="glyphicon glyphicon-trash"></span></button>
 					</td>
 				  </tr>
 				</tbody>

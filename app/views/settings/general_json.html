@@ -1,0 +1,192 @@
+<div class="page page-smart-table">
+  <!-- page header -->
+  <div class="pageheader">
+    <h2>{{page.title}} <span>// {{page.subtitle}}</span></h2>
+
+    <div class="page-bar">
+
+      <ul class="page-breadcrumb">
+        <li>
+          <a class="point" href="#/"><i class="fa fa-home"></i> {{main.title}}</a>
+        </li>
+        <li>
+          <a>{{page.title}}</a> / <a href="#!/settings">Settings</a> / <a href="#!/settings/menu">Menu</a> / JSON Object
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+  <!-- /page header -->
+
+  <!-- page content -->
+  <div class="pagecontent">
+    <!-- row -->
+    <div class="row">
+      <!-- col -->
+      <div class="col-md-12">
+
+        <!-- tile -->
+        <section class="tile" fullscreen="isFullscreen02">
+          <!-- tile header -->
+          <div class="tile-header dvd dvd-btm">
+            <h1 class="custom-font"><strong>General JSON OBJECT</strong></h1>
+            <ul class="controls">
+              <li class="dropdown">
+                <a class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+                <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                  <li>
+                    <a href tile-control-toggle>
+                      <span class="minimize"><i class="fa fa-angle-down"></i>&nbsp;&nbsp;&nbsp;Minimize</span>
+                      <span class="expand"><i class="fa fa-angle-up"></i>&nbsp;&nbsp;&nbsp;Expand</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href tile-control-refresh ng-click="ajaxFaker()">
+                      <i class="fa fa-refresh"></i> Refresh
+                    </a>
+                  </li>
+                  <li>
+                    <a href tile-control-fullscreen ng-click="isFullscreen02 = !isFullscreen02">
+                      <i class="fa fa-expand"></i> Fullscreen
+                    </a>
+                  </li>
+                  <li>
+                    <a href tile-control-lightbox>
+                      <i class="fa fa-magnet"></i> Open in Lightbox
+                    </a>
+                  </li>
+
+                </ul>
+
+              </li>
+              <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+            </ul>
+          </div>
+          <!-- /tile header -->
+
+          <!-- tile body -->
+          <div class="tile-body">
+				<ul>
+					<li>Apparence
+						<ul>
+							<li>Header
+								<ul>
+									<li>Background: {{configuration.apparence.header.background}}</li>
+									<li>Background: {{configuration.apparence.header.linkcolor}}</li>
+									<li>Background: {{configuration.apparence.header.color}}</li>
+								</ul>
+							</li>
+							<li>Left
+								<ul>
+									<li>Background: {{configuration.apparence.left.background}}</li>
+									<li>Background: {{configuration.apparence.left.linkcolor}}</li>
+									<li>Background: {{configuration.apparence.left.color}}</li>
+								</ul>
+							</li>
+							<li>Content
+								<ul>
+									<li>Background: {{configuration.apparence.content.background}}</li>
+									<li>Background: {{configuration.apparence.content.linkcolor}}</li>
+									<li>Background: {{configuration.apparence.content.color}}</li>
+								</ul>
+							</li>
+							<li>Footer
+								<ul>
+									<li>Background: {{configuration.apparence.footer.background}}</li>
+									<li>Background: {{configuration.apparence.footer.linkcolor}}</li>
+									<li>Background: {{configuration.apparence.footer.color}}</li>
+								</ul>
+							</li>							
+						</ul>
+					</li>
+					<li>Options
+						<ul>
+							<li ng-repeat="option in configuration.options">
+								<b>{{option.key}}</b>
+								<table class="table table-stripped">
+									<thead>
+										<tr>
+											<th width="10%">Index</th>
+											<th width="20%">Key</th>
+											<th width="20%">Target</th>
+											<th width="30%">Caption</th>
+											<th width="20%">Type</th>
+											<th width="20%">Icon</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>{{option.index}}</td>
+											<td>{{option.key}}</td>
+											<td>{{option.target}}</td>
+											<td>{{option.caption}}</td>
+											<td>{{option.type}}</td>
+											<td><i ng-class="option.icon"></i></td>
+										</tr>
+									</tbody>
+								</table>
+							</li>
+						</ul>
+					</li>
+					<li>Fields
+						<ul>
+							<li ng-repeat="field in configuration.fields">
+								<a href="#"><i class="fa fa-minus"></i> Key={{field.key}}</a>
+								<ul>
+									<li ng-repeat="value in field.values">
+										<b>{{value.field}}</b>
+										<table class="table table-stripped">
+											<thead>
+												<tr>
+													<th width="10%;">Field</th>
+													<th width="10%;">Caption</th>
+													<th width="10%;">Type</th>
+													<th width="10%;">Width</th>
+													<th width="10%;">Filter</th>
+													<th width="10%;">Sort</th>
+													<th width="10%;">Edit</th>
+													<th width="10%;">Visible</th>
+													<th width="10%;">Options</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>{{value.field}}</td>
+													<td>{{value.caption}}</td>
+													<td>{{value.type}}</td>
+													<td>{{value.width}}</td>
+													<td>{{value.filter}}</td>
+													<td>{{value.sort}}</td>
+													<td>{{value.edit}}</td>
+													<td>{{value.visible}}</td>
+													<td>{{value.options}}</td>
+												</tr>
+											</tbody>
+										</table>										
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h1>Restful API</h1>
+						<ul>
+							<li><span><strong>develop environment:</strong> {{configuration.data.develop}}</span></li>
+							<li><span><strong>production environment:</strong> {{configuration.data.production}}</span></li>
+						</ul>
+					</li>
+				</ul>
+          </div>
+          <!-- /tile body -->
+
+        </section>
+        <!-- /tile -->
+
+      </div>
+      <!-- /col -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /page content -->
+</div>

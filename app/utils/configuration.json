@@ -25,7 +25,7 @@
 		{
 			"index":2,
 			"key":"programs",
-			"target":"programs",
+			"target":"programs/list",
 			"caption":"Program management",
 			"type":"CRUD",
 			"icon":"fa fa-file"
@@ -35,7 +35,7 @@
 			"key":"schedualing",
 			"target":"schedualing",
 			"caption":"Program Schedualing",
-			"type":"CUSTOM",
+			"type":"HTML PAGE",
 			"icon":"fa fa-calendar"
 		},
 		{
@@ -43,13 +43,13 @@
 			"key":"content",
 			"target":"content",
 			"caption":"Content management",
-			"type":"CUSTOM",
+			"type":"HTML PAGE",
 			"icon":"fa fa-book"
 		},
 		{
 			"index":5,
 			"key":"users",
-			"target":"users",
+			"target":"users/list",
 			"caption":"User management",
 			"type":"CRUD",
 			"icon":"fa fa-users"
@@ -70,5 +70,138 @@
 			"type":"CUSTOM",
 			"icon":"fa fa-wrench"
 		}
-	]
+	],	
+	"fields":[
+		{
+			"key":"users",
+			"values":[
+				{
+					"field":"id",
+					"caption":"ID",
+					"type":"Auto",
+					"width":5,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"name",
+					"caption":"Name",
+					"type":"Text",
+					"width":25,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"nickname",
+					"caption":"Nickname",
+					"type":"Text",
+					"width":25,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				}				
+			]
+		},
+		{
+			"key":"programs",
+			"values":[
+				{
+					"field":"id",
+					"caption":"ID",
+					"type":"Auto",
+					"width":5,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"description",
+					"caption":"DESCRIPTION",
+					"type":"Text",
+					"width":20,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"price",
+					"caption":"PRICE",
+					"type":"Numeric",
+					"width":20,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"status",
+					"caption":"STATUS",
+					"type":"checkbox",
+					"width":10,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				}				
+			]
+		}
+	],
+	"data":
+		{
+			"test":[
+				{
+					"key":"users",
+					"values":[
+						{
+							"id":1,
+							"name":"Ivan Calderon",
+							"nickname":"icalderon",
+							"select":false							
+						},
+						{
+							"id":2,
+							"name":"Gabriela Leon",
+							"nickname":"gleon",
+							"select":false
+						}
+					]
+				},
+				{
+					"key":"programs",
+					"values":[
+						{
+							"id":1,
+							"description":"First Program",
+							"price":1200,
+							"status":"Inactive",
+							"select":false
+						},
+						{
+							"id":1,
+							"description":"Second Program",
+							"price":100,
+							"status":"Activo",
+							"select":false
+						}
+					]
+				}				
+			],
+			"develop":"http://localhost/mybackend/",
+			"production":"http://sistemacalderon.com/mybackend/"
+		},
+		"env":"test"
 }

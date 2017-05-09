@@ -1,4 +1,4 @@
-<div class="page page-smart-table">
+<div>
   <!-- page header -->
   <div class="pageheader">
     <h2>{{page.title}}</h2>
@@ -82,52 +82,45 @@
             <p><strong>Sorting:</strong> {{object.tableParams.sorting.field}} {{object.tableParams.sorting.direction}} 
             <p><strong>Filter:</strong> {{object.tableParams.filter.field}} {{object.tableParams.filter.operator}} {{object.tableParams.filter.value}}
             <table show-filter="true" class="table table-custom">
-			  <thead>
-				  <tr>
-						<th ng-repeat="title in object.tableParams.titles" style="width:{{title.width}};"><a ng-click="clickTitle(title.callback,title.field)" class="point">{{title.caption}}</a></th>
-				  </tr>
-				  <tr>
-						<th ng-repeat="title in object.tableParams.titles">
-							<input type="text" class="editable-input form-control input-sm" ng-show="title.filter==1" />
-							<select ng-show="title.filter==2" class="editable-input form-control" style="font-size:12px;">
-								<option ng-repeat="opt in title.options">{{opt}}</option>
-							</select>
-						</th>
-				  </tr>
-			  </thead>
-              <tr ng-repeat="row in object.$data" ng-form="rowForm">
-				<td>
-					<input type="checkbox" ng-checked="row.select" ng-model="row.select" ng-click="selectOne(row.select)"></input>
-				</td>				
-				<td ng-repeat="field in row" ng-switch="row.isEditing" ng-show="!$last">
-					<span ng-switch-default class="editable-text">{{field}}</span>
-					<md-input-container flex ng-class="name.$invalid && name.$dirty ? 'has-error' : ''" ng-switch-when="true">
-						<input type="text" name="name" ng-model="field" class="editable-input form-control input-sm" required />
-					</md-input-container>
-                </td>
-				<!--
-                <td data-title="'Expiration'" sortable="'user.offerExpirationDate'" filter="{ 'user.offerExpirationDate': 'text' }" ng-switch="row.isEditing" ng-class="name.$dirty ? 'bg-warning' : ''" ng-form="offerExpirationDate">
-					<span ng-switch-default class="editable-text">{{row.offerExpirationDate | date:'d-MMMM-y'}}</span>
-					<md-input-container flex ng-class="offerExpirationDate.$invalid && offerExpirationDate.$dirty ? 'has-error' : ''" ng-switch-when="true">
-						<input type="datetime" name="offerExpirationDate" ng-init="row.offerExpirationDate = today(row.offerExpirationDate)" ng-model="row.offerExpirationDate" class="editable-input form-control input-sm" uib-datepicker-popup="{{users.format}}" is-open="row.opened" datepicker-options="users.dateOptions" required />
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="users.open($event, row.user)"><i class="glyphicon glyphicon-calendar"></i></button>
-						</span>
-					</md-input-container>
-                </td>
-				-->
-                <td>
-					<button class="btn btn-primary btn-sm" ng-click="users.save(row, rowForm)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
-					<button class="btn btn-default btn-sm" ng-click="users.cancel(row, rowForm)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
-					<button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing"><span class="glyphicon glyphicon-pencil"></span></button>
-					<!--Extra buttons inside the table Begin-->
-					<button ng-repeat="eBtn in object.tableParams.extraButtons" ng-class="eBtn.class2" ng-click="row.isEditing = true" ng-if="!row.isEditing">
-						<span ng-class="eBtn.icon2"></span>
-					</button>
-					<!--Extra buttons inside the table End-->
-					<button class="btn btn-danger btn-sm" ng-click="users.del(row)" ng-if="!row.isEditing"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-              </tr>
+				  <thead>
+					  <tr>
+							<th width="5%"><input type="checkbox" ng-click="clickTitle('selectAll')" ng-checked="statusSelect" /></th>
+							<th ng-repeat="title in object.tableParams.titles" style="width:{{title.width}}%;"><a ng-click="clickTitle('orderBy',title.field)" class="point">{{title.caption}}</a></th>
+					  </tr>
+					  <tr>
+							<th width="5%"></th>
+							<th ng-repeat="title in object.tableParams.titles">
+								<input type="text" class="editable-input form-control input-sm" ng-show="title.filter==1" />
+								<select ng-show="title.filter==2" class="editable-input form-control" style="font-size:12px;">
+									<option ng-repeat="opt in title.options">{{opt}}</option>
+								</select>
+							</th>
+					  </tr>
+				  </thead>
+				  <tbody>
+					  <tr ng-repeat="row in object.$data" ng-form="rowForm">
+							<td>
+								<input type="checkbox" ng-checked="row.select" ng-model="row.select" ng-click="selectOne(row.select)"></input>
+							</td>				
+							<td ng-repeat="field in row" ng-switch="row.isEditing" ng-show="!$last">
+								<span ng-switch-default class="editable-text">{{field}}</span>
+								<md-input-container flex ng-class="name.$invalid && name.$dirty ? 'has-error' : ''" ng-switch-when="true">
+									<input type="text" name="name" ng-model="field" class="editable-input form-control input-sm" required />
+								</md-input-container>
+							</td>
+							<td>
+								<button class="btn btn-primary btn-sm" ng-click="users.save(row, rowForm)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
+								<button class="btn btn-default btn-sm" ng-click="users.cancel(row, rowForm)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
+								<button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing"><span class="glyphicon glyphicon-pencil"></span></button>
+								<!--Extra buttons inside the table Begin-->
+								<button ng-repeat="eBtn in object.tableParams.extraButtons" ng-class="eBtn.class2" ng-click="row.isEditing = true" ng-if="!row.isEditing">
+									<span ng-class="eBtn.icon2"></span>
+								</button>
+								<!--Extra buttons inside the table End-->
+								<button class="btn btn-danger btn-sm" ng-click="users.del(row)" ng-if="!row.isEditing"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>
+					   </tr>
+				  </tbody>
             </table>
 
           </div>
