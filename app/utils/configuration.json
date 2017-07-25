@@ -29,8 +29,8 @@
 		{
 			"test":[
 			],
-			"develop":"http://localhost/mybackend/",
+			"develop":"http://localhost:1337/",
 			"production":"http://sistemacalderon.com/mybackend/"
 		},
-		"env":"test"
+		"env":"develop"
 }

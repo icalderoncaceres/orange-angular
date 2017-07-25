@@ -126,7 +126,7 @@ angular
  .controller("dashboardController",function($scope,pageService){
 	pageService.selected=1;
 })
- .controller("crudController",function($scope,pageService,$routeParams,$rootScope){
+ .controller("crudController",function($scope,pageService,$routeParams,$rootScope,$http){
 	var c=$rootScope.configuration.options.length;
 	for(var i=0;i<c;i++){
 		if($rootScope.configuration.options[i].key==$routeParams.list)
@@ -160,6 +160,28 @@ angular
 		};
 	}else if($rootScope.configuration.env=="develop"){
 		//Develop environment
+
+		$http.get($rootScope.configuration.data.develop + $routeParams.list).then(function(data){
+			console.log(data);
+			$scope.object={
+				$data:data.data,
+				tableParams:{
+					sorting:{
+						field:"",
+						direction:""
+					},
+					filter:{
+						field:"",
+						operator:"",
+						value:""
+					},
+					titles:$rootScope.configuration.fields[i].values,
+					extraButtons:[]
+
+				}
+			}
+		});
+
 	}else{
 		//Production environment
 	}
@@ -277,6 +299,9 @@ angular
 	$scope.changeLanguage=function(lang){
 		alert(lang);
 	};	
+	$scope.save=function(){
+		alert("Save");
+	};
  })
  .controller("schedualingController",function($scope,pageService){
 	pageService.selected=3;
