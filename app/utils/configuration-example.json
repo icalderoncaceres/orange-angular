@@ -1,0 +1,207 @@
+{
+	"apparence":{
+		"header":{
+			"background":"#493d55",
+			"linkcolor":"#337ab7",
+			"color":"#616f77"
+		},
+		"left":{
+			"background":"#493d55",
+			"linkcolor":"#c0c0c0",
+			"color":"#616f77"
+		},
+		"content":{
+			"background":"#e7eaeb",
+			"linkcolor":"#616f77",
+			"color":"#616f77"
+		},
+		"footer":{
+			"background":"#493d55",
+			"linkcolor":"#616f77",
+			"color":"#616f77"
+		}
+	},
+	"options":[
+		{
+			"index":2,
+			"key":"programs",
+			"target":"programs/list",
+			"caption":"Program management",
+			"type":"CRUD",
+			"icon":"fa fa-file"
+		},
+		{
+			"index":3,
+			"key":"schedualing",
+			"target":"schedualing",
+			"caption":"Program Schedualing",
+			"type":"HTML PAGE",
+			"icon":"fa fa-calendar"
+		},
+		{
+			"index":4,
+			"key":"content",
+			"target":"content",
+			"caption":"Content management",
+			"type":"HTML PAGE",
+			"icon":"fa fa-book"
+		},
+		{
+			"index":5,
+			"key":"users",
+			"target":"users/list",
+			"caption":"User management",
+			"type":"CRUD",
+			"icon":"fa fa-users"
+		},
+		{	
+			"index":6,
+			"key":"mailing",
+			"target":"users/mailing",
+			"caption":"Mailing management",
+			"type":"CUSTOM",
+			"icon":"fa fa-envelope-o"			
+		},
+		{
+			"index":7,
+			"key":"admin",
+			"target":"users/admins",
+			"caption":"Admin management",
+			"type":"CUSTOM",
+			"icon":"fa fa-wrench"
+		}
+	],	
+	"fields":[
+		{
+			"key":"users",
+			"values":[
+				{
+					"field":"id",
+					"caption":"ID",
+					"type":"Auto",
+					"width":5,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"name",
+					"caption":"Name",
+					"type":"Text",
+					"width":25,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"nickname",
+					"caption":"Nickname",
+					"type":"Text",
+					"width":25,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				}				
+			]
+		},
+		{
+			"key":"programs",
+			"values":[
+				{
+					"field":"id",
+					"caption":"ID",
+					"type":"Auto",
+					"width":5,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"description",
+					"caption":"DESCRIPTION",
+					"type":"Text",
+					"width":20,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"price",
+					"caption":"PRICE",
+					"type":"Numeric",
+					"width":20,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				},
+				{
+					"field":"status",
+					"caption":"STATUS",
+					"type":"checkbox",
+					"width":10,
+					"filter":1,
+					"sort":1,
+					"edit":1,
+					"visible":1,
+					"options":{}
+				}				
+			]
+		}
+	],
+	"data":
+		{
+			"test":[
+				{
+					"key":"users",
+					"values":[
+						{
+							"id":1,
+							"name":"Ivan Calderon",
+							"nickname":"icalderon",
+							"select":false							
+						},
+						{
+							"id":2,
+							"name":"Gabriela Leon",
+							"nickname":"gleon",
+							"select":false
+						}
+					]
+				},
+				{
+					"key":"programs",
+					"values":[
+						{
+							"id":1,
+							"description":"First Program",
+							"price":1200,
+							"status":"Inactive",
+							"select":false
+						},
+						{
+							"id":1,
+							"description":"Second Program",
+							"price":100,
+							"status":"Activo",
+							"select":false
+						}
+					]
+				}				
+			],
+			"develop":"http://localhost/mybackend/",
+			"production":"http://sistemacalderon.com/mybackend/"
+		},
+		"env":"test"
+}
