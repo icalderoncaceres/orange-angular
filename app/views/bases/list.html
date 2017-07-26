@@ -102,7 +102,7 @@
 							<td>
 								<input type="checkbox" ng-checked="row.select" ng-model="row.select" ng-click="selectOne(row.select)"></input>
 							</td>				
-							<td ng-repeat="field in row" ng-switch="row.isEditing" ng-show="!$last">
+							<td ng-repeat="field in row" ng-switch="row.isEditing" >
 								<span ng-switch-default class="editable-text">{{field}}</span>
 								<md-input-container flex ng-class="name.$invalid && name.$dirty ? 'has-error' : ''" ng-switch-when="true">
 									<input type="text" name="name" ng-model="field" class="editable-input form-control input-sm" required />
