@@ -300,7 +300,41 @@ angular
 		alert(lang);
 	};	
 	$scope.save=function(){
-		alert("Save");
+		var url=$rootScope.configuration.data.develop + $routeParams.list + '/create?';
+		var longitud=$rootScope.configuration.fields[i].values.length;
+		for(var j=0;j<longitud;j++){
+			url+=$rootScope.configuration.fields[i].values[j].field + "=" + $("#" + $rootScope.configuration.fields[i].values[j].field).val();
+			if(j<(longitud - 1)){
+				url+="&";
+			}
+		}
+		/*
+		$http.get($rootScope.configuration.data.develop + $routeParams.list).then(function(data){
+			console.log(data);
+			$scope.object={
+				$data:data.data,
+				tableParams:{
+					sorting:{
+						field:"",
+						direction:""
+					},
+					filter:{
+						field:"",
+						operator:"",
+						value:""
+					},
+					titles:$rootScope.configuration.fields[i].values,
+					extraButtons:[]
+
+				}
+			}
+		});
+		
+		*/
+		alert(url);
+		$http.get(url).then(function(data){
+			alert(data);
+		});
 	};
  })
  .controller("schedualingController",function($scope,pageService){
@@ -336,6 +370,7 @@ angular
 				$scope.newOption.caption=$rootScope.configuration.options[i].caption;
 				$scope.newOption.type=$rootScope.configuration.options[i].type;
 				$scope.newOption.icon=$rootScope.configuration.options[i].icon;
+				$scope.newOption.value="";
 				break;
 			}
 		}
@@ -362,6 +397,7 @@ angular
 						  caption:'',
 						  type:'',
 						  icon:'fa fa-users',
+						  value:''
 		};
 	};
 	
@@ -382,6 +418,7 @@ angular
 			$rootScope.configuration.options[i].caption=$scope.newOption.caption;
 			$rootScope.configuration.options[i].icon=$scope.newOption.icon;
 			$rootScope.configuration.options[i].type=$scope.newOption.type;
+			$rootScope.configuration.options[i].value="";
 		}
 	};
 	

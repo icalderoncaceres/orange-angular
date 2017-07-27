@@ -69,7 +69,7 @@
           <div class="tile-body"> 
 				<form>
 					<div class="form-group" ng-repeat="field in object.tableParams.titles">
-						<input class="form-control" placeholder="{{field.caption}}"/>
+						<input class="form-control" placeholder="{{field.caption}}" id="{{field.field}}" />
 						<!--
 						Una directiva mas u menos asi
 						<control ui-field="field"></control>
