@@ -126,7 +126,7 @@ angular
  .controller("dashboardController",function($scope,pageService){
 	pageService.selected=1;
 })
- .controller("crudController",function($scope,pageService,$routeParams,$rootScope,$http){
+ .controller("crudController",function($scope,pageService,$routeParams,$rootScope,$http,$location){
 	var c=$rootScope.configuration.options.length;
 	for(var i=0;i<c;i++){
 		if($rootScope.configuration.options[i].key==$routeParams.list)
@@ -308,32 +308,11 @@ angular
 				url+="&";
 			}
 		}
-		/*
-		$http.get($rootScope.configuration.data.develop + $routeParams.list).then(function(data){
-			console.log(data);
-			$scope.object={
-				$data:data.data,
-				tableParams:{
-					sorting:{
-						field:"",
-						direction:""
-					},
-					filter:{
-						field:"",
-						operator:"",
-						value:""
-					},
-					titles:$rootScope.configuration.fields[i].values,
-					extraButtons:[]
 
-				}
-			}
-		});
-		
-		*/
-		alert(url);
 		$http.get(url).then(function(data){
-			alert(data);
+			var ruta="#!/" + $routeParams.list + "/list";
+			alert(ruta);
+			$location.path(ruta);
 		});
 	};
  })
